@@ -1,48 +1,39 @@
 from string import ascii_lowercase
 
-number = 1
+number = 21
 
 word = input("Word: ")
+key = number
 
-while number <= 26:
+letter = []
 
-    print()
-    print(number)
+letter_ascii_position = []
 
-    key = number
+letter_decoded_position = []
 
-    letter = []
+letter_decoded = []
 
-    letter_ascii_position = []
+for i in word:
+    letter.append(i)
 
-    letter_decoded_position = []
+print(letter)
 
-    letter_decoded = []
+for i in word:
+    for j in ascii_lowercase:
+        if i == j:
+            letter_ascii_position.append(ascii_lowercase.index(j))
 
-    for i in word:
-        letter.append(i)
+print(letter_ascii_position)
 
-    print(letter)
+for i in range(len(letter_ascii_position)):
+    letter_decoded_position.append(letter_ascii_position[i] - key)
 
-    for i in word:
-        for j in ascii_lowercase:
-            if i == j:
-                letter_ascii_position.append(ascii_lowercase.index(j))
+print(letter_decoded_position)
 
-    print(letter_ascii_position)
+for i in range(len(letter_decoded_position)):
+    letter_decoded.append(ascii_lowercase[letter_decoded_position[i]])
 
-    for i in range(len(letter_ascii_position)):
-        letter_decoded_position.append(letter_ascii_position[i] - key)
+print(letter_decoded)
 
-    print(letter_decoded_position)
-
-    for i in range(len(letter_decoded_position)):
-        letter_decoded.append(ascii_lowercase[letter_decoded_position[i]])
-
-    print(letter_decoded)
-
-    for i in range(len(letter_decoded)):
-        print(letter_decoded[i], end='')
-
-    print()
-    number += 1
+for i in range(len(letter_decoded)):
+    print(letter_decoded[i], end='')
